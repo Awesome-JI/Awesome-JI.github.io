@@ -1,0 +1,16 @@
+{
+  "id": "ve280",
+  "name": "Programming & Elem. Data Structures",
+  "repositories": [
+    {
+      "author": "tc-imba",
+      "name": "VE280",
+      "url": "https://github.com/tc-imba/VE280"
+    },
+    {
+      "author": "TianzeWang",
+      "name": "VE280_Github",
+      "url": "https://github.com/TianzeWang/VE280_Github"
+    }
+  ]
+}
