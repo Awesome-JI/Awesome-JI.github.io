@@ -5,7 +5,7 @@ var path = require('path');
 var isProduction =
   process.argv.indexOf('-p') >= 0 || process.env.NODE_ENV === 'production';
 var sourcePath = path.join(__dirname, './src');
-var outPath = path.join(__dirname, './docs');
+var outPath = path.join(__dirname, './build');
 var dataPath = path.join(__dirname, './data');
 
 // plugins
@@ -125,6 +125,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'assets/index.html',
+      filename: '../index.html',
     }),
   ],
   devServer: {
