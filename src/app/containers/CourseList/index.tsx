@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as style from './style.css';
-import { inject, observer } from 'mobx-react';
-import { RouteComponentProps } from 'react-router';
-import { Header } from 'app/components/Header';
-import { TodoList } from 'app/components/TodoList';
-import { Footer } from 'app/components/Footer';
-import { TodoStore, RouterStore, CourseStore } from 'app/stores';
+import {inject, observer} from 'mobx-react';
+import {RouteComponentProps} from 'react-router';
+import {Header} from 'app/components/Header';
+import {TodoList} from 'app/components/TodoList';
+import {Footer} from 'app/components/Footer';
+import {TodoStore, RouterStore, CourseStore} from 'app/stores';
 import {
   STORE_TODO,
   STORE_ROUTER,
@@ -13,7 +13,7 @@ import {
   TodoFilter, STORE_COURSE,
 } from 'app/constants';
 
-type TParams =  { id: string };
+type TParams = { id: string };
 
 export interface CourseListProps extends RouteComponentProps<TParams> {
   /** MobX Stores will be injected via @inject() **/
@@ -34,7 +34,7 @@ export class CourseList extends React.Component<CourseListProps, CourseListState
     const id = props.match.params.id;
     this.state = {
       filter: TodoFilter.ALL,
-      id: id
+      id: id,
     };
   }
 
@@ -48,12 +48,12 @@ export class CourseList extends React.Component<CourseListProps, CourseListState
 
   checkLocationChange() {
     const router = this.props[STORE_ROUTER] as RouterStore;
-    const filter = Object.keys(TODO_FILTER_LOCATION_HASH)
-      .map((key) => Number(key) as TodoFilter)
-      .find(
-        (filter) => TODO_FILTER_LOCATION_HASH[filter] === router.location.hash
+    const filter = Object.keys(TODO_FILTER_LOCATION_HASH).
+      map((key) => Number(key) as TodoFilter).
+      find(
+        (filter) => TODO_FILTER_LOCATION_HASH[filter] === router.location.hash,
       );
-    this.setState({ filter });
+    this.setState({filter});
   }
 
   private handleFilter = (filter: TodoFilter) => {
@@ -81,8 +81,8 @@ export class CourseList extends React.Component<CourseListProps, CourseListState
     const todoStore = this.props[STORE_TODO] as TodoStore;
     const courseStore = this.props[STORE_COURSE] as CourseStore;
 
-    const { children, match } = this.props;
-    const { filter } = this.state;
+    const {children, match} = this.props;
+    const {filter} = this.state;
     const filteredTodos = this.getFilteredTodo(filter);
 
     const footer = todoStore.todos.length && (
@@ -100,7 +100,7 @@ export class CourseList extends React.Component<CourseListProps, CourseListState
 
     return (
       <div className={style.normal}>
-        {courseStore.courses.map(course=>{
+        {courseStore.courses.map(course => {
           return course.id;
         })}
       </div>
